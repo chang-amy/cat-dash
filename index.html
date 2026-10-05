@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Cat Dash · Street Parkour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- in-run HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <span class="chip" id="attemptChip">Try #1</span>
+      <span class="chip hidden" id="levelChip">Lv 2</span>
+      <span class="chip" id="fishChip">🐟 0</span>
+    </div>
+    <div class="hud-center">
+      <div id="bar"><div id="barFill"></div><div id="bestMark"></div></div>
+      <span id="barText">0%</span>
+    </div>
+    <div class="hud-right"></div>
+  </div>
+
+  <button id="muteBtn" title="Mute (M)">🔊</button>
+
+  <!-- title screen -->
+  <div id="titleScreen" class="screen">
+    <div class="panel">
+      <div class="paws">🐾</div>
+      <h1>CAT DASH</h1>
+      <p class="tag">Miso the cat is late for dinner — parkour home through the city streets, Geometry-Dash style.</p>
+      <div class="chips">
+        <span class="chip">Best <b id="tBest">0%</b></span>
+        <span class="chip">🐟 <b id="tFish">0</b></span>
+        <span class="chip">Tries <b id="tTries">0</b></span>
+      </div>
+      <button id="startBtn" class="btn">▶&nbsp; Start running</button>
+      <p class="hint">Space / Click / Tap — jump &nbsp;·&nbsp; Hold longer = higher &amp; longer jumps &nbsp;·&nbsp; Land on crates, dodge cones &nbsp;·&nbsp; M mute &nbsp;·&nbsp; R restart</p>
+    </div>
+  </div>
+
+  <!-- death screen -->
+  <div id="deathScreen" class="screen hidden">
+    <div class="panel">
+      <h1>SPLAT!</h1>
+      <p id="dNewBest" class="newbest hidden">✨ NEW BEST! ✨</p>
+      <p class="tag">Miso made it <b id="dPct">0%</b> of the way home.</p>
+      <div class="chips">
+        <span class="chip">🐟 <b id="dFish">0</b></span>
+        <span class="chip">Best <b id="dBest">0%</b></span>
+      </div>
+      <button id="retryBtn" class="btn">↻&nbsp; Try again</button>
+      <p class="hint">Space / Click — instant retry</p>
+    </div>
+  </div>
+
+  <!-- win screen -->
+  <div id="winScreen" class="screen hidden">
+    <div class="panel">
+      <div class="paws">🏆</div>
+      <h1>HOME!</h1>
+      <p class="tag">Miso made it back for dinner — in one piece!</p>
+      <div class="chips">
+        <span class="chip">🐟 <b id="wFish">0</b></span>
+        <span class="chip">Time <b id="wTime">0s</b></span>
+      </div>
+      <p class="tag small">The streets get a little faster — Level <b id="wLevel">2</b> unlocked!</p>
+      <button id="againBtn" class="btn">Run it again 🐾</button>
+    </div>
+  </div>
+
+  <!-- pause screen -->
+  <div id="pauseScreen" class="screen hidden">
+    <div class="panel">
+      <h1>PAUSED</h1>
+      <p class="hint">Click or press Space to resume</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
